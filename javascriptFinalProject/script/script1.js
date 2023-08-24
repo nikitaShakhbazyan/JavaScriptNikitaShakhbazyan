@@ -86,27 +86,7 @@ fetch(url)
     .catch((error)=> {
         console.log(error);
     });
-    
-    // document.querySelector('#searchInput').addEventListener('input', filterList());
-
-    // function filterList() {
-    //     const searchInput = document.querySelector('#searchInput');
-    //     const filter = searchInput.value.toLowerCase();
-    //     const listItems = document.querySelectorAll('.list-item');
-    
-    //     listItems.forEach(item => {
-    //         let text = item.querySelector('.item-text').textContent;
-    //         if (text.toLowerCase().includes(filter)) {
-    //             item.style.display = 'block';
-    //         } else {
-    //             item.style.display = 'none';
-    //         }
-    //     });
-    // }
-    
-    
-
-    
+      
 })
 
 const searchInput = document.querySelector('#searchInput');
