@@ -28,7 +28,7 @@ fetch(url)
         let p = createNode('p')
         let a = createNode('a')
         let img1 = createNode('img')
-        a.classList.add('roww')
+        a.classList.add('row')
         p.classList.add('col')
         img1.classList.add('col')
         img1.src = product.thumbnail;
@@ -112,5 +112,23 @@ function displayResults(results) {
 }
 
 console.log(url)
+
+document.querySelector('#searchInput').addEventListener('input', filterList);
+
+function filterList() {
+    const searchInput = document.querySelector('#searchInput');
+    const filter = searchInput.value.toLowerCase();
+    const listItems = document.querySelectorAll('.col');
+    // const listPictures = document.querySelectorAll('')
+
+    Array.from(listItems).forEach((item) => {
+        let text = item.textContent;
+        if (text.toLowerCase().includes(filter)) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
 
 
