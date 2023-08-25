@@ -28,19 +28,21 @@ fetch(url)
         let p = createNode('p')
         let a = createNode('a')
         let img1 = createNode('img')
-        a.classList.add('row')
+        a.classList.add('roww')
         p.classList.add('col')
         img1.classList.add('col')
         img1.src = product.thumbnail;
         // h1.innerHTML= `${product.title}`
 
-        a.textContent = `Click here for more info `
+        a.textContent = `
+        Click here for more info `
         a.href = `./index2.html`
-        p.innerHTML = `<h1>${product.title}</h1> 
+        p.innerHTML = `<div class="col">
+        <h1>${product.title}</h1> 
         <b>Rating :</b>
         <i>${product.rating}</i> / 5
         <br> <br>
-        <b> Product price </b> : ${product.price} usd <br> <b>Product Description</b> ${product.description}`
+        <b> Product price </b> : ${product.price} usd <br> <b>Product Description</b> ${product.description} </div>`
         a.style.fontSize = '20px'
         p.style.width = '20px'
         // container.style.margin = '180px'
@@ -118,8 +120,7 @@ document.querySelector('#searchInput').addEventListener('input', filterList);
 function filterList() {
     const searchInput = document.querySelector('#searchInput');
     const filter = searchInput.value.toLowerCase();
-    const listItems = document.querySelectorAll('.col');
-    // const listPictures = document.querySelectorAll('')
+    const listItems = document.querySelectorAll('.col,.row');
 
     Array.from(listItems).forEach((item) => {
         let text = item.textContent;
