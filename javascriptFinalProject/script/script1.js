@@ -1,5 +1,9 @@
-'use strict'
-// export {url,append,createNode,}
+
+import {filterList} from "./searchInput.js"
+import { sortingFunction } from "./sort.js"
+// import { fetchAndRenderProducts, renderProducts, sortProductsByPrice } from './sort.js';
+export {url}
+
 
 const url = 'https://dummyjson.com/products'
 const ulCont = document.querySelector('#ulContainer')
@@ -7,8 +11,6 @@ const container = document.querySelector('.container')
 const button = document.querySelector('.btn')
 // const search = document.querySelector('#searchInput')
  
-
-
 function createNode(element) {
     return document.createElement(element);
 }
@@ -16,8 +18,6 @@ function createNode(element) {
 function append(parent, el) {
   return parent.appendChild(el);
 }
-
-
 
 fetch(url) 
 .then((res) => res.json()) 
@@ -91,45 +91,7 @@ fetch(url)
       
 })
 
-const searchInput = document.querySelector('#searchInput');
-const searchResults = document.querySelector('#searchResults');
-
-searchInput.addEventListener('input', performSearch);
-
-function performSearch() {
-    const query = searchInput.value.toLowerCase();
-    const filteredResults = searchData.filter(item => item.toLowerCase().includes(query));
-    
-    displayResults(filteredResults);
-}
-
-function displayResults(results) {
-    searchResults.innerHTML = '';
-
-    results.forEach(result => {
-        const li = document.createElement('li');
-        li.textContent = result;
-        searchResults.appendChild(li);
-    });
-}
-
 console.log(url)
 
-document.querySelector('#searchInput').addEventListener('input', filterList);
-
-function filterList() {
-    const searchInput = document.querySelector('#searchInput');
-    const filter = searchInput.value.toLowerCase();
-    const listItems = document.querySelectorAll('.col,.row');
-
-    Array.from(listItems).forEach((item) => {
-        let text = item.textContent;
-        if (text.toLowerCase().includes(filter)) {
-            item.style.display = '';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-}
-
-
+filterList()
+sortingFunction()

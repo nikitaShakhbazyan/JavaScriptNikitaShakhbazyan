@@ -1,28 +1,33 @@
-
+// export { fetchAndRenderProducts, renderProducts, sortProductsByPrice };
+// import { url } from "./script1"
+export {sortingFunction}
 const url = 'https://dummyjson.com/products'
-const productsContainerDiv = document.querySelector('.container');
+const productsContainerDiv = document.querySelector('.cont1');
 const sortButton = document.getElementById('sortButton');
 
-const fetchAndRenderProducts = async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    products = data.products;
-    renderProducts(products);
-};
+function sortingFunction() {
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            let products = data.products;
 
-const renderProducts = (productsToRender) => {
-    productsContainerDiv.innerHTML = productsToRender
-        .map(product => `<div>${product.name} - $${product.price}</div>`)
-        .join('');
-};
+            products.sort(function(a, b) {
+                return a.price - b.price;
+            });
 
-const sortProductsByPrice = () => {
-    products.sort((a, b) => a.price - b.price);
-    renderProducts(products);
-};
+            console.log(products);
+            let sortedProductsDiv = document.createElement('div');
+            sortedProductsDiv.innerHTML = products.map(product => `
+                <h1>${product.name} - $${product.price}</h1>
+            `).join('');
+            
+            // Вместо console.log, добавьте блок в productsContainerDiv
+            productsContainerDiv.appendChild(sortedProductsDiv);
 
-sortButton.addEventListener('click', () => {
-    sortProductsByPrice();
-});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
 
-fetchAndRenderProducts();
+sortButton.addEventListener('click', sortingFunction);
