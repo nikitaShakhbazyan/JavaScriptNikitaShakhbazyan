@@ -52,6 +52,7 @@ fetch(url)
 
         a.addEventListener('click', function(event) {
             event.preventDefault(); 
+            event.stopPropagation()
             
             const productIndex = shopProducts.findIndex(product => product.thumbnail === img1.src);
             const selectedProduct = shopProducts[productIndex];
