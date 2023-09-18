@@ -1,6 +1,7 @@
 
 import {filterList} from "./searchInput.js"
 import { sortingFunction } from "./sort.js"
+import { createStars } from "./stars.js"
 // import { fetchAndRenderProducts, renderProducts, sortProductsByPrice } from './sort.js';
 export {url}
 
@@ -96,3 +97,4 @@ console.log(url)
 
 filterList()
 sortingFunction()
+createStars()

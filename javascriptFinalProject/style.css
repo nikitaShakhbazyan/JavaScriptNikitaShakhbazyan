@@ -1,3 +1,5 @@
+
+
 #ulContainer {
     /* display: flex; */
     gap: 30px;
@@ -28,6 +30,9 @@ img {
     animation-timing-function: linear;
     animation-duration: 30s;
     animation-iteration-count: infinite;
+    /* margin: 0; */
+    overflow: hidden;
+    /* background-color: red; */
 }
 
 @keyframes bgAnimation {
@@ -43,4 +48,23 @@ img {
     }
     
 }
+
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50vh);
+    }
+    100% {
+        transform: translateY(310vh);
+    }
+}
+.stars {
+    position: absolute;
+    width: 3px;
+    height: 14px;
+    background: white;
+    animation: fall 7s ease-in-out infinite;
+    /* z-index: 333; */
+}
+
 
