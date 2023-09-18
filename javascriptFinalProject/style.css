@@ -60,10 +60,12 @@ img {
 }
 .stars {
     position: absolute;
-    width: 3px;
-    height: 14px;
+    width: 4px;
+    height: 6px;
     background: white;
-    animation: fall 7s ease-in-out infinite;
+    animation: fall linear infinite;
+    /* border-radius: 50%; */
+    border-radius: 100px / 50px;
     /* z-index: 333; */
 }
 
