@@ -1,6 +1,6 @@
 // export { fetchAndRenderProducts, renderProducts, sortProductsByPrice };
 // import { url } from "./script1"
-export {sortingFunction}
+// export {sortingFunction}
 const url = 'https://dummyjson.com/products'
 const productsContainerDiv = document.querySelector('.cont1');
 const sortButton = document.getElementById('sortButton');

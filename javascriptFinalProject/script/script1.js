@@ -1,7 +1,8 @@
 
-import {filterList} from "./searchInput.js"
-import { sortingFunction } from "./sort.js"
+// import {filterList} from "./searchInput.js"
+// import { sortingFunction } from "./sort.js"
 import { createStars } from "./stars.js"
+import {searchAndFilter} from './searchInput.js'
 // import { fetchAndRenderProducts, renderProducts, sortProductsByPrice } from './sort.js';
 export {url}
 
@@ -22,19 +23,21 @@ function append(parent, el) {
 
 fetch(url) 
 .then((res) => res.json()) 
-.then(function(data) {
+.then(function (data) {
     let shopProducts = data.products
     console.log(data.products)
     return shopProducts.map(function(product) {
+        let div = createNode('div');
         let p = createNode('p')
         let a = createNode('a')
         let img1 = createNode('img')
         a.classList.add('roww')
         p.classList.add('col')
         img1.classList.add('col')
+        div.classList.add('newDiv')
         img1.src = product.thumbnail;
         // h1.innerHTML= `${product.title}`
-
+        // console.log(img1)
         a.textContent = `
         Click here for more info `
         a.href = `./index2.html`
@@ -50,6 +53,9 @@ fetch(url)
        const imgAppend = append(ulCont,img1)
        const pAppend = append (ulCont,p)
         const aAppend = append(ulCont,a)
+        // div.appendChild(img1);
+        // div.appendChild(p);
+        // div.appendChild(a);
 
         a.addEventListener('click', function(event) {
             event.preventDefault(); 
@@ -95,6 +101,8 @@ fetch(url)
 
 console.log(url)
 
-filterList()
-sortingFunction()
-createStars()
+// filterList()
+// sortingFunction()
+// createStars()
+
+searchAndFilter()
